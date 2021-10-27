@@ -1,5 +1,5 @@
 // Vettori
-const items = [
+const images = [
    'img/01.jpg',
    'img/02.jpg',
    'img/03.jpg',
@@ -27,7 +27,7 @@ const sliderLeft = document.getElementById('slider-left');
 let contatore = 0;
 
 // stampa div innerHTML
-for (let i = 0; i < items.length; i++) {
+for (let i = 0; i < images.length; i++) {
 
    const item = document.createElement('div');
    sliderLeft.append(item);
@@ -39,7 +39,7 @@ for (let i = 0; i < items.length; i++) {
    }
 
    item.innerHTML = `
-      <img src="${items[i]}" alt="">
+      <img src="${images[i]}" alt="">
       <div class="text-over-img">
          <h1>${title[i]}</h1>
          <p>${text[i]}</p>
@@ -50,6 +50,43 @@ for (let i = 0; i < items.length; i++) {
 }
 
 // carosello by clicking
+const items = document.getElementsByClassName('item');
+
+console.log('items',items);
+
 const upArrow = document.getElementById('up_arrow');
 const downArrow = document.getElementById('down_arrow');
 
+upArrow.addEventListener('click', function() {
+   
+   items[contatore].classList.remove('active');
+   contatore--;
+
+   if (contatore < 0) {
+      contatore = items.length - 1;
+   }
+
+   console.log('contatore',contatore);
+
+   items[contatore].classList.add('active');
+   
+   console.log('item selezionato con contatore', items[contatore]);
+
+});
+
+downArrow.addEventListener('click', function() {
+   
+   items[contatore].classList.remove('active');
+   contatore++;
+
+   if (contatore > items.length - 1) {
+      contatore = 0;
+   }
+
+   console.log('contatore',contatore);
+
+   items[contatore].classList.add('active');
+
+   console.log('item selezionato con contatore', items[contatore]);
+
+});
