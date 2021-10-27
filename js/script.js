@@ -25,6 +25,8 @@ const text = [
 
 const sliderLeft = document.getElementById('slider-left');
 let contatore = 0;
+// vettore immagini preview active 
+const itemsPreview = document.getElementsByClassName('item-mini');
 
 // stampa div innerHTML
 for (let i = 0; i < images.length; i++) {
@@ -36,6 +38,7 @@ for (let i = 0; i < images.length; i++) {
    // il primo elemento avra la classe active di deafult
    if (i === contatore) {
       item.classList.add('active');
+      itemsPreview[contatore].classList.add('active');
    }
 
    item.innerHTML = `
@@ -49,7 +52,8 @@ for (let i = 0; i < images.length; i++) {
    console.log(item);
 }
 
-// carosello by clicking
+//********** */ carosello by clicking ********
+// costanti e vettore item
 const items = document.getElementsByClassName('item');
 
 console.log('items',items);
@@ -57,9 +61,11 @@ console.log('items',items);
 const upArrow = document.getElementById('up_arrow');
 const downArrow = document.getElementById('down_arrow');
 
+// evento click freccia in su
 upArrow.addEventListener('click', function() {
    
    items[contatore].classList.remove('active');
+   itemsPreview[contatore].classList.remove('active');
    contatore--;
 
    if (contatore < 0) {
@@ -69,14 +75,17 @@ upArrow.addEventListener('click', function() {
    console.log('contatore',contatore);
 
    items[contatore].classList.add('active');
-   
+   itemsPreview[contatore].classList.add('active');
+
    console.log('item selezionato con contatore', items[contatore]);
 
 });
 
+// evento click freccia in giú
 downArrow.addEventListener('click', function() {
    
    items[contatore].classList.remove('active');
+   itemsPreview[contatore].classList.remove('active');
    contatore++;
 
    if (contatore > items.length - 1) {
@@ -86,6 +95,7 @@ downArrow.addEventListener('click', function() {
    console.log('contatore',contatore);
 
    items[contatore].classList.add('active');
+   itemsPreview[contatore].classList.add('active');
 
    console.log('item selezionato con contatore', items[contatore]);
 
