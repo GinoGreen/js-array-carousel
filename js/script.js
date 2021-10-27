@@ -26,6 +26,7 @@ const text = [
 const sliderLeft = document.getElementById('slider-left');
 let contatore = 0;
 
+// stampa div innerHTML
 for (let i = 0; i < items.length; i++) {
 
    const item = document.createElement('div');
@@ -44,5 +45,11 @@ for (let i = 0; i < items.length; i++) {
          <p>${text[i]}</p>
       </div>
    `;
+
    console.log(item);
 }
+
+// carosello by clicking
+const upArrow = document.getElementById('up_arrow');
+const downArrow = document.getElementById('down_arrow');
+
