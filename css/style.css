@@ -1,0 +1,16 @@
+.lv-container {
+   height: 100vh;
+}
+
+.slider {
+   width: 80%;
+   max-width: 800px;
+}
+
+.item {
+   display: none;
+}
+
+.item.active {
+   display: block;
+}
